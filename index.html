@@ -409,6 +409,45 @@ a{color:inherit;text-decoration:none}
 [data-theme="light"] .brand img{border-radius:10px}
 [data-theme="light"] .foot-brand img{border-radius:14px}
 
+
+/* ---------- map ---------- */
+.map-wrap{
+  display:grid;grid-template-columns:1.15fr .85fr;gap:1.1rem;align-items:stretch;
+}
+.map-frame{
+  position:relative;border-radius:22px;overflow:hidden;border:1px solid var(--line);
+  min-height:340px;background:var(--panel);
+  box-shadow:0 26px 50px -30px rgba(0,0,0,.75);
+}
+.map-frame iframe{
+  position:absolute;inset:0;width:100%;height:100%;border:0;
+  filter:grayscale(.25) saturate(1.15) contrast(1.05);
+}
+[data-theme="light"] .map-frame iframe{filter:grayscale(.1) saturate(1.05)}
+.map-frame::after{
+  content:"";position:absolute;inset:0;pointer-events:none;border-radius:22px;
+  box-shadow:inset 0 0 0 1px rgba(233,185,73,.18),inset 0 30px 60px -40px rgba(0,0,0,.7);
+}
+.map-pin{
+  position:absolute;top:50%;left:50%;translate:-50% -100%;z-index:2;pointer-events:none;
+  filter:drop-shadow(0 10px 14px rgba(0,0,0,.55));
+}
+.map-pin svg{width:40px;height:40px;animation:pinDrop .7s cubic-bezier(.2,.9,.25,1) both}
+@keyframes pinDrop{from{transform:translateY(-26px) scale(.6);opacity:0}}
+.map-pin i{
+  display:block;width:14px;height:5px;margin:2px auto 0;border-radius:50%;
+  background:rgba(0,0,0,.35);filter:blur(2px);
+  animation:pinShadow .7s ease both;
+}
+@keyframes pinShadow{from{transform:scaleX(.2);opacity:0}}
+.map-card{display:flex;flex-direction:column;justify-content:space-between;gap:1.2rem}
+.map-addr{display:flex;gap:.9rem;align-items:flex-start}
+.map-addr svg{width:26px;height:26px;color:var(--gold);flex:none;margin-top:2px}
+.map-addr h3{font-family:var(--disp);font-weight:800;font-size:1.3rem;margin:0 0 .3rem}
+.map-addr p{margin:0;color:var(--muted);font-size:.98rem;line-height:1.75}
+.map-actions{display:flex;flex-direction:column;gap:.7rem}
+.map-actions .btn{width:100%;justify-content:center}
+
 /* reveal */
 .rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.9,.25,1)}
 .rv.on{opacity:1;transform:none}
@@ -463,6 +502,7 @@ a{color:inherit;text-decoration:none}
       <a href="#squads">الفئات</a>
       <a href="#path">مسار اللاعب</a>
       <a href="#faq">أسئلة شائعة</a>
+      <a href="#location">الموقع</a>
       <a href="#join">تواصل معنا</a>
     </nav>
     <a class="nav-cta" href="#join">سجّل ابنك</a>
@@ -746,6 +786,55 @@ a{color:inherit;text-decoration:none}
   </div>
 </section>
 
+
+<div class="ribbon" aria-hidden="true"><i></i><b></b></div>
+
+<!-- ============ MAP / LOCATION ============ -->
+<section class="band band--tint" id="location">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="eyebrow">أين نتدرّب</p>
+      <h2 class="sec-title">ملعب <span class="gold">قلب الأسد</span> على الخريطة</h2>
+      <p class="sec-lead">تعرّف على موقع الملعب مسبقاً، واحصل على الاتجاهات مباشرة قبل أول حصة لابنك.</p>
+    </div>
+    <div class="map-wrap rv">
+      <div class="map-frame">
+        <iframe
+          src="https://www.google.com/maps?q=16.8758668,42.5955706&hl=ar&z=16&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="موقع ملعب قلب الأسد على خرائط جوجل"></iframe>
+        <div class="map-pin" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 22s7.5-7.05 7.5-12.5S16.14 2 12 2 4.5 4.95 4.5 9.5 12 22 12 22z" fill="#E9B949" stroke="#7E5710" stroke-width="1"/><circle cx="12" cy="9.5" r="3.2" fill="#140A05"/></svg>
+          <i></i>
+        </div>
+      </div>
+      <div class="card map-card">
+        <div>
+          <p class="eyebrow" style="justify-content:flex-start">الموقع</p>
+          <div class="map-addr" style="margin-top:.9rem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+            <div>
+              <h3>ملعب قلب الأسد</h3>
+              <p>حي السويس، جازان، المملكة العربية السعودية — يمكنك تحديد الموقع مباشرة من الخريطة أو فتحه في تطبيق خرائط جوجل.</p>
+            </div>
+          </div>
+        </div>
+        <div class="map-actions">
+          <a class="btn btn-gold" href="https://maps.app.goo.gl/FePTpbuBSr3YPDDx8?g_st=ic" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 20l-5.5 2V6L9 4m0 16l6 2m-6-2V4m6 18l5.5-2V4L15 6m0 16V6m0 0L9 4"/></svg>
+            افتح في خرائط جوجل
+          </a>
+          <a class="btn btn-ghost" href="https://www.google.com/maps/dir/?api=1&destination=16.8758668,42.5955706" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg>
+            احصل على الاتجاهات
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ FOOTER ============ -->
 <footer class="foot">
   <div class="wrap foot-in">
@@ -755,7 +844,7 @@ a{color:inherit;text-decoration:none}
     </div>
     <nav class="foot-links">
       <a href="#why">لماذا نحن</a><a href="#squads">الفئات</a><a href="#path">مسار اللاعب</a>
-      <a href="#faq">أسئلة شائعة</a><a href="#join">تسجيل</a>
+      <a href="#faq">أسئلة شائعة</a><a href="#location">الموقع</a><a href="#join">تسجيل</a>
     </nav>
     <div class="foot-tag">
       <span>شجاعة · انضباط · احترام · تطوير — فريق واحد … هدف واحد</span>
