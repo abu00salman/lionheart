@@ -3,487 +3,461 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#070409" id="metaTheme">
+<meta name="theme-color" content="#0A0612" id="metaTheme">
 <title>أكاديمية قلب الأسد — نصنع الأبطال قبل البطولات</title>
-<meta name="description" content="أكاديمية قلب الأسد لكرة القدم للناشئين من ٥ سنوات فما فوق. مدربون معتمدون، برامج تدريبية حديثة، وبيئة احترافية متكاملة.">
+<meta name="description" content="أكاديمية قلب الأسد لكرة القدم للناشئين من ٥ سنوات فما فوق في جازان. مدربون معتمدون، برامج حديثة، وبيئة احترافية.">
 <link rel="icon" type="image/png" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zain:wght@400;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Zain:wght@400;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#070409;
-  --ink-2:#100A18;
-  --panel:#140D20;
-  --royal:#3B1D7E;
-  --violet:#6D28D9;
+  --ink:#0A0612;          /* أسود بنفسجي */
+  --ink-2:#120B1F;
+  --panel:#160E26;
+  --vio:#8B5CF6;          /* بنفسجي أساسي */
+  --vio-deep:#3B1D7E;
   --gold:#E9B949;
   --gold-lt:#F7DFA0;
   --gold-dk:#B8801F;
-  --chalk:#F4EFE6;
-  --muted:#A99BBB;
-  --line:rgba(233,185,73,.16);
+  --chalk:#F3EEF9;
+  --muted:#A395BD;
+  --line:rgba(139,92,246,.2);
+  --hair:rgba(139,92,246,.16);
   --disp:"Zain",system-ui,sans-serif;
   --body:"IBM Plex Sans Arabic",system-ui,sans-serif;
   --num:"Oswald",system-ui,sans-serif;
-  --maxw:1160px;
+  --maxw:1200px;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-  transition:background .35s ease,color .35s ease;
   margin:0;background:var(--ink);color:var(--chalk);
-  font-family:var(--body);font-weight:400;line-height:1.75;
+  font-family:var(--body);font-weight:400;line-height:1.8;
   -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  transition:background .35s ease,color .35s ease;
 }
 img{max-width:100%}
 a{color:inherit;text-decoration:none}
-:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
-.wrap{width:min(100% - 2.4rem,var(--maxw));margin-inline:auto}
+button{font-family:inherit}
+:focus-visible{outline:2px solid var(--vio);outline-offset:3px;border-radius:4px}
+.wrap{width:min(100% - 2.6rem,var(--maxw));margin-inline:auto}
+.band{padding:clamp(3.6rem,8vw,6.5rem) 0;position:relative}
+.hairline{border:0;border-top:1px solid var(--hair);margin:0}
 
-/* ---------- shared type ---------- */
-.eyebrow{
-  font-size:.85rem;font-weight:600;letter-spacing:.12em;color:var(--gold);
-  text-transform:uppercase;display:flex;align-items:center;gap:.7rem;
+/* ---------- labels & headings (editorial) ---------- */
+.label{
+  display:inline-flex;align-items:center;gap:.55rem;
+  font-size:.85rem;font-weight:600;letter-spacing:.1em;color:var(--vio);
 }
-.eyebrow::before{content:"";width:7px;height:7px;rotate:45deg;background:linear-gradient(135deg,var(--gold-lt),var(--gold-dk));flex:none}
-.eyebrow::after{content:"";height:1px;flex:1;max-width:80px;background:linear-gradient(to left,var(--gold),transparent)}
-.sec-title{
-  font-family:var(--disp);font-weight:900;line-height:1.1;margin:.5rem 0 0;
-  font-size:clamp(2rem,5.2vw,3.4rem);letter-spacing:-.01em;
+.label::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--vio)}
+.h2{
+  font-family:var(--disp);font-weight:900;line-height:1.08;margin:.7rem 0 0;
+  font-size:clamp(2.1rem,5.6vw,3.8rem);letter-spacing:-.01em;
 }
-.sec-lead{color:var(--muted);max-width:56ch;margin:.7rem 0 0;font-size:1.02rem}
-.gold{
+.lead{color:var(--muted);max-width:58ch;margin:.9rem 0 0;font-size:clamp(1rem,1.9vw,1.1rem)}
+.goldgrad{
   background:linear-gradient(100deg,var(--gold-lt),var(--gold) 45%,var(--gold-dk));
   -webkit-background-clip:text;background-clip:text;color:transparent;
 }
-
-/* ---------- gold ribbon divider ---------- */
-.ribbon{position:relative;height:56px;overflow:hidden;pointer-events:none}
-.ribbon i{
-  position:absolute;inset-block:24px;inset-inline:-4%;
-  background:linear-gradient(90deg,transparent,var(--gold-dk) 18%,var(--gold-lt) 50%,var(--gold-dk) 82%,transparent);
-  height:2px;
-}
-.ribbon b{
-  position:absolute;top:50%;left:50%;translate:-50% -50%;width:13px;height:13px;rotate:45deg;
-  background:var(--ink);border:2px solid var(--gold);
-}
+.viotext{color:var(--vio)}
 
 /* ---------- nav ---------- */
 .nav{
-  position:sticky;top:0;z-index:60;backdrop-filter:blur(16px);
-  background:rgba(7,4,9,.78);border-bottom:1px solid rgba(233,185,73,.14);
-  transition:box-shadow .3s;
+  position:sticky;top:0;z-index:80;backdrop-filter:blur(16px);
+  background:color-mix(in srgb,var(--ink) 82%,transparent);
+  border-bottom:1px solid var(--hair);transition:box-shadow .3s;
 }
-.nav.scrolled{box-shadow:0 14px 40px -18px rgba(0,0,0,.9)}
-.nav-in{display:flex;align-items:center;gap:1.4rem;padding:.6rem 0;justify-content:space-between}
-.brand{display:flex;align-items:center;gap:.7rem;font-family:var(--disp);font-weight:900;font-size:1.22rem;line-height:1.15}
-.brand img{width:44px;height:auto;flex:none;filter:drop-shadow(0 2px 8px rgba(233,185,73,.4))}
-.brand small{display:block;font-family:var(--body);font-size:.64rem;font-weight:600;letter-spacing:.14em;color:var(--gold);line-height:1.5}
-.nav-links{display:flex;gap:1.5rem;align-items:center;font-size:.98rem;font-weight:500}
-.nav-links a{color:var(--muted);transition:color .2s;position:relative}
-.nav-links a::after{
-  content:"";position:absolute;bottom:-6px;inset-inline:50%;height:2px;background:var(--gold);
-  transition:inset-inline .25s;
-}
-.nav-links a:hover{color:var(--gold-lt)}
-.nav-links a:hover::after{inset-inline:0}
+.nav.scrolled{box-shadow:0 16px 44px -24px rgba(0,0,0,.85)}
+.nav-in{display:flex;align-items:center;gap:1.3rem;padding:.65rem 0;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:.7rem;font-family:var(--disp);font-weight:900;font-size:1.24rem;line-height:1.1}
+.brand img{width:44px;height:auto;flex:none;filter:drop-shadow(0 2px 8px rgba(233,185,73,.35))}
+.brand small{display:block;font-family:var(--num);font-size:.6rem;font-weight:500;letter-spacing:.22em;color:var(--vio);line-height:1.6}
+.nav-links{display:flex;gap:1.4rem;align-items:center;font-size:.97rem;font-weight:500}
+.nav-links a{color:var(--muted);transition:color .2s}
+.nav-links a:hover{color:var(--chalk)}
 .nav-cta{
-  font-weight:600;font-size:.9rem;padding:.5rem 1.15rem;border-radius:999px;
-  background:linear-gradient(135deg,var(--gold-lt),var(--gold-dk));color:#140A05;
+  font-weight:700;font-size:.92rem;padding:.55rem 1.25rem;border-radius:999px;
+  background:linear-gradient(135deg,var(--gold-lt),var(--gold-dk));color:#160D02;
   transition:transform .2s,box-shadow .2s;
 }
-.nav-cta:hover{transform:translateY(-2px);box-shadow:0 10px 26px -10px var(--gold)}
-.burger{display:none;background:none;border:0;color:var(--gold);padding:.4rem;cursor:pointer}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 12px 28px -12px var(--gold)}
+.theme-btn{
+  width:40px;height:40px;border-radius:50%;border:1px solid var(--line);flex:none;
+  background:transparent;color:var(--vio);display:grid;place-items:center;cursor:pointer;
+  transition:border-color .2s,transform .2s;
+}
+.theme-btn:hover{border-color:var(--vio);transform:rotate(18deg)}
+.theme-btn svg{width:19px;height:19px}
+.theme-btn .ic-moon{display:none}
+[data-theme="light"] .theme-btn .ic-sun{display:none}
+[data-theme="light"] .theme-btn .ic-moon{display:block}
+.burger{display:none;background:none;border:0;color:var(--vio);padding:.4rem;cursor:pointer}
 .burger svg{width:26px;height:26px}
 
-/* ---------- hero ---------- */
-.hero{position:relative;overflow:hidden;padding:clamp(2.6rem,7vw,5.2rem) 0 clamp(3.2rem,7vw,5.2rem)}
+/* ---------- hero (editorial) ---------- */
+.hero{position:relative;overflow:hidden;padding:clamp(2.4rem,5vw,4rem) 0 0}
 .hero::before{
-  content:"";position:absolute;inset:-35% -12% auto;height:130%;
+  content:"";position:absolute;inset:-25% -10% auto;height:110%;pointer-events:none;
   background:
-    radial-gradient(closest-side at 26% 4%,rgba(109,40,217,.4),transparent 70%),
-    radial-gradient(closest-side at 80% 16%,rgba(59,29,126,.5),transparent 72%),
-    radial-gradient(closest-side at 55% 55%,rgba(233,185,73,.07),transparent 70%);
-  pointer-events:none;
+    radial-gradient(closest-side at 22% 8%,rgba(139,92,246,.22),transparent 68%),
+    radial-gradient(closest-side at 82% 20%,rgba(59,29,126,.35),transparent 70%);
 }
-#dust{position:absolute;inset:0;pointer-events:none}
-.pitch{
-  position:absolute;left:50%;bottom:-4rem;width:190%;height:230px;translate:-50% 0;
-  background:repeating-linear-gradient(to right,rgba(233,185,73,.14) 0 1px,transparent 1px 92px);
-  -webkit-mask-image:linear-gradient(to top,#000,transparent);mask-image:linear-gradient(to top,#000,transparent);
-  transform:perspective(430px) rotateX(66deg);pointer-events:none;opacity:.55;
-}
-.chev{position:absolute;pointer-events:none;opacity:.6}
-.chev.tl{top:0;right:0;width:190px;height:190px;background:linear-gradient(225deg,var(--gold) 0 5px,transparent 5px 13px,var(--royal) 13px 19px,transparent 19px)}
-.chev.br{bottom:0;left:0;width:150px;height:150px;background:linear-gradient(45deg,var(--gold) 0 4px,transparent 4px 12px,var(--royal) 12px 17px,transparent 17px)}
+.hero-top{position:relative;display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;flex-wrap:wrap}
+.hero-kicker{font-size:.95rem;color:var(--muted)}
+.hero-kicker b{color:var(--chalk);font-weight:600}
 
-.hero-in{position:relative;z-index:2;display:grid;grid-template-columns:1.02fr .9fr;gap:clamp(1.2rem,4vw,3rem);align-items:center}
-.crest-box{position:relative;display:flex;justify-content:center;align-items:center;padding-block:.5rem}
-.crest{
-  width:min(100%,400px);height:auto;position:relative;z-index:2;
-  filter:drop-shadow(0 30px 60px rgba(0,0,0,.8)) drop-shadow(0 0 44px rgba(233,185,73,.22));
-  animation:crestIn 1.1s cubic-bezier(.2,.9,.25,1) both;
+/* giant wordmark marquee */
+.wordmark{overflow:hidden;margin-top:1rem;position:relative}
+.wm-track{display:inline-flex;align-items:baseline;gap:5vw;white-space:nowrap;width:max-content;animation:wm 26s linear infinite;padding-inline-end:5vw}
+@keyframes wm{to{transform:translateX(50%)}}
+.wm-ar{
+  font-family:var(--disp);font-weight:900;line-height:1;
+  font-size:clamp(4.2rem,16vw,12.5rem);letter-spacing:-.02em;
+  background:linear-gradient(100deg,var(--gold-lt),var(--gold) 40%,var(--gold-dk));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
 }
-@keyframes crestIn{from{opacity:0;transform:scale(.88) translateY(20px)}}
-.crest-ring{
-  position:absolute;width:min(96%,430px);aspect-ratio:1;border-radius:50%;z-index:1;
-  background:conic-gradient(from 0deg,transparent 0 40%,rgba(233,185,73,.5) 50%,transparent 60% 100%);
-  -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 2px),#000 calc(100% - 1px));
-  mask:radial-gradient(farthest-side,transparent calc(100% - 2px),#000 calc(100% - 1px));
-  animation:spin 9s linear infinite;
+.wm-en{
+  font-family:var(--num);font-weight:600;line-height:1;text-transform:uppercase;
+  font-size:clamp(3.2rem,12vw,9.5rem);letter-spacing:.04em;
+  color:transparent;-webkit-text-stroke:2px var(--vio);
 }
-@keyframes spin{to{rotate:360deg}}
-.crest-halo{
-  position:absolute;width:min(80%,330px);aspect-ratio:1;border-radius:50%;
-  background:radial-gradient(circle,rgba(233,185,73,.2),transparent 66%);filter:blur(26px);
-  animation:pulse 5.5s ease-in-out infinite;
-}
-@keyframes pulse{50%{transform:scale(1.14);opacity:.7}}
-.crest-podium{
-  position:absolute;bottom:-6px;left:50%;translate:-50% 0;width:min(78%,300px);height:36px;border-radius:50%;
-  background:radial-gradient(closest-side,rgba(233,185,73,.3),transparent 72%);filter:blur(8px);
-}
+.wm-star{font-size:clamp(2rem,7vw,5rem);color:var(--vio)}
 
-.hero h1{
-  font-family:var(--disp);font-weight:900;margin:.8rem 0 0;
-  font-size:clamp(2.9rem,8.6vw,5.6rem);line-height:.97;letter-spacing:-.015em;
+.hero-grid{
+  position:relative;display:grid;grid-template-columns:1fr .95fr;gap:clamp(1.4rem,4vw,3.4rem);
+  align-items:center;margin-top:clamp(1.6rem,4vw,2.8rem);
 }
-.hero h1 .l{display:block;overflow:hidden;padding-bottom:.06em}
-.hero h1 .l span{display:block;animation:rise .9s cubic-bezier(.2,.9,.25,1) both}
-.hero h1 .l:nth-child(2) span{animation-delay:.13s}
-@keyframes rise{from{transform:translateY(108%)}}
-.hero p.lead{color:var(--muted);font-size:clamp(1rem,2.1vw,1.14rem);max-width:46ch;margin:1.1rem 0 0}
-.hero-cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.7rem}
+.hero-copy p.sub{
+  font-family:var(--disp);font-weight:800;font-size:clamp(1.5rem,3.4vw,2.2rem);
+  line-height:1.3;margin:0;
+}
+.hero-copy p.desc{color:var(--muted);max-width:44ch;margin:1rem 0 0;font-size:1.04rem}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.8rem}
 .btn{
-  font-family:var(--body);font-weight:700;font-size:1rem;padding:.85rem 1.7rem;border-radius:999px;
+  font-weight:700;font-size:1rem;padding:.9rem 1.75rem;border-radius:999px;
   display:inline-flex;align-items:center;gap:.55rem;border:1px solid transparent;cursor:pointer;
-  position:relative;overflow:hidden;
-  transition:transform .22s,box-shadow .22s,border-color .22s,color .22s;
+  position:relative;overflow:hidden;transition:transform .22s,box-shadow .22s,border-color .22s,color .22s,background .22s;
 }
-.btn svg{width:19px;height:19px;position:relative;z-index:1}
-.btn > *{position:relative;z-index:1}
-.btn-gold{background:linear-gradient(135deg,var(--gold-lt),var(--gold) 50%,var(--gold-dk));color:#140A05;box-shadow:0 16px 34px -14px rgba(233,185,73,.85)}
-.btn-gold::before{
-  content:"";position:absolute;inset:0;z-index:0;
-  background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%);
-  translate:-160% 0;transition:translate .01s;
-}
-.btn-gold:hover{transform:translateY(-3px);box-shadow:0 22px 42px -14px rgba(233,185,73,.9)}
-.btn-gold:hover::before{translate:160% 0;transition:translate .7s ease}
-.btn-ghost{border-color:var(--line);color:var(--chalk);background:rgba(59,29,126,.2)}
-.btn-ghost:hover{border-color:var(--gold);color:var(--gold-lt);transform:translateY(-3px)}
+.btn svg{width:19px;height:19px}
+.btn-gold{background:linear-gradient(135deg,var(--gold-lt),var(--gold) 50%,var(--gold-dk));color:#160D02;box-shadow:0 16px 34px -14px rgba(233,185,73,.8)}
+.btn-gold:hover{transform:translateY(-3px);box-shadow:0 22px 42px -14px rgba(233,185,73,.85)}
+.btn-line{border-color:var(--line);color:var(--chalk)}
+.btn-line:hover{border-color:var(--vio);color:var(--vio);transform:translateY(-3px)}
 
-/* stats */
-.stats{
-  position:relative;z-index:2;margin-top:clamp(2.2rem,5vw,3.4rem);
-  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
-  background:var(--line);border-block:1px solid var(--line);
+/* hero media = crest stage (template's portrait slot) */
+.stage{
+  position:relative;border-radius:26px;overflow:hidden;border:1px solid var(--line);
+  background:
+    radial-gradient(120% 90% at 50% 0%,rgba(139,92,246,.3),transparent 60%),
+    linear-gradient(170deg,#1A1030,#0A0612 70%);
+  display:grid;place-items:center;padding:clamp(1.6rem,4vw,2.6rem);
+  min-height:380px;
 }
-.stat{background:var(--ink);padding:1.1rem .8rem;text-align:center}
+.stage::before{
+  content:"";position:absolute;inset:0;opacity:.5;pointer-events:none;
+  background:repeating-linear-gradient(to right,rgba(139,92,246,.07) 0 1px,transparent 1px 72px);
+  -webkit-mask-image:linear-gradient(to top,#000 20%,transparent 90%);mask-image:linear-gradient(to top,#000 20%,transparent 90%);
+}
+.stage img{
+  width:min(78%,330px);position:relative;z-index:1;
+  filter:drop-shadow(0 26px 52px rgba(0,0,0,.75)) drop-shadow(0 0 40px rgba(233,185,73,.18));
+  animation:crestIn 1s cubic-bezier(.2,.9,.25,1) both;
+}
+@keyframes crestIn{from{opacity:0;transform:scale(.9) translateY(16px)}}
+.stage::after{
+  content:"";position:absolute;bottom:8%;left:50%;translate:-50% 0;width:56%;height:30px;border-radius:50%;
+  background:radial-gradient(closest-side,rgba(233,185,73,.35),transparent 70%);filter:blur(10px);
+}
+
+/* values strip (clients slot) */
+.values{margin-top:clamp(2rem,5vw,3rem);border-block:1px solid var(--hair);padding:1rem 0;overflow:hidden}
+.values .label{margin-bottom:.4rem}
+.v-track{display:inline-flex;gap:3.2rem;white-space:nowrap;width:max-content;animation:wm 20s linear infinite;padding-inline-end:3.2rem}
+.v-item{
+  display:inline-flex;align-items:center;gap:3.2rem;
+  font-family:var(--disp);font-weight:800;font-size:1.3rem;color:var(--muted);
+}
+.v-item i{font-style:normal;color:var(--vio);font-size:1rem}
+
+/* ---------- stats ---------- */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(1.2rem,3vw,2.4rem)}
+.stat{border-top:2px solid var(--vio);padding-top:1.1rem}
 .stat b{
-  font-family:var(--num);font-weight:700;font-size:clamp(1.7rem,4vw,2.5rem);line-height:1;display:block;
+  font-family:var(--num);font-weight:700;font-size:clamp(2.6rem,6vw,4.2rem);line-height:1;display:block;
   background:linear-gradient(180deg,var(--gold-lt),var(--gold-dk));
   -webkit-background-clip:text;background-clip:text;color:transparent;
 }
-.stat span{font-size:.92rem;color:var(--muted);font-weight:500}
+.stat h3{font-family:var(--disp);font-weight:800;font-size:1.2rem;margin:.5rem 0 .2rem}
+.stat p{margin:0;color:var(--muted);font-size:.95rem}
 
-/* ---------- ticker ---------- */
-.ticker{
-  border-bottom:1px solid var(--line);
-  background:linear-gradient(90deg,rgba(59,29,126,.35),rgba(7,4,9,.3),rgba(59,29,126,.35));
-  overflow:hidden;padding:.8rem 0;
-}
-.ticker-track{display:flex;gap:2.6rem;width:max-content;animation:slide 26s linear infinite}
-.ticker:hover .ticker-track{animation-play-state:paused}
-@keyframes slide{to{transform:translateX(50%)}}
-.ticker-item{
-  display:flex;align-items:center;gap:2.6rem;font-family:var(--disp);font-weight:800;
-  font-size:1.18rem;letter-spacing:.02em;white-space:nowrap;
-}
-.ticker-item i{font-style:normal;color:var(--gold)}
-.ticker-item::after{content:"";width:7px;height:7px;rotate:45deg;background:linear-gradient(135deg,var(--gold-lt),var(--gold-dk));flex:none}
-
-/* ---------- sections ---------- */
-.band{padding:clamp(3.4rem,8vw,6rem) 0;position:relative}
-.band--tint{background:linear-gradient(180deg,transparent,rgba(59,29,126,.18),transparent)}
-.head{margin-bottom:clamp(1.8rem,4vw,3rem)}
-
-/* pillars */
-.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem}
-.pillar{
-  background:linear-gradient(165deg,rgba(59,29,126,.28),rgba(16,10,24,.85));
-  border:1px solid var(--line);border-radius:20px;padding:1.5rem 1.35rem;
-  transition:transform .3s,border-color .3s,box-shadow .3s;position:relative;overflow:hidden;
-}
-.pillar::before{
-  content:"";position:absolute;inset-inline:0;top:0;height:3px;
-  background:linear-gradient(90deg,transparent,var(--gold),transparent);
-  opacity:0;transition:opacity .35s;
-}
-.pillar::after{
-  content:"";position:absolute;inset:auto -40% -60% auto;width:160px;height:160px;border-radius:50%;
-  background:radial-gradient(circle,rgba(233,185,73,.2),transparent 70%);opacity:0;transition:opacity .35s;
-}
-.pillar:hover{transform:translateY(-6px);border-color:rgba(233,185,73,.5);box-shadow:0 26px 46px -26px #000}
-.pillar:hover::before,.pillar:hover::after{opacity:1}
-.pillar-ic{width:46px;height:46px;color:var(--gold);margin-bottom:.9rem}
-.pillar h3{font-family:var(--disp);font-weight:800;font-size:1.32rem;margin:0 0 .35rem}
-.pillar p{margin:0;color:var(--muted);font-size:.99rem;line-height:1.75}
-
-/* squads */
-.squads{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.1rem}
-.kit{
-  position:relative;padding:2.9rem 1.3rem 1.5rem;border:1px solid var(--line);overflow:hidden;
+/* ---------- about ---------- */
+.about{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(1.6rem,4vw,3.4rem);align-items:center}
+.about .h2{max-width:16ch}
+.about-media{
+  border-radius:22px;overflow:hidden;border:1px solid var(--line);position:relative;min-height:300px;
   background:
-    repeating-linear-gradient(112deg,rgba(255,255,255,.03) 0 2px,transparent 2px 9px),
-    linear-gradient(170deg,rgba(59,29,126,.45),rgba(12,7,18,.95));
-  clip-path:polygon(0 0,36% 0,44% 7%,56% 7%,64% 0,100% 0,100% 100%,0 100%);
-  transition:transform .3s;
+    radial-gradient(100% 80% at 50% 100%,rgba(233,185,73,.14),transparent 60%),
+    linear-gradient(160deg,#1A1030,#0B0714);
+  display:grid;place-items:center;
 }
-.kit::after{
-  content:"";position:absolute;inset:0;
-  background:linear-gradient(115deg,transparent 35%,rgba(233,185,73,.12) 50%,transparent 65%);
-  translate:-160% 0;
-}
-.kit:hover{transform:translateY(-8px)}
-.kit:hover::after{translate:160% 0;transition:translate .85s ease}
-.kit-num{
-  font-family:var(--num);font-weight:700;font-size:clamp(4.4rem,11vw,6rem);line-height:.85;
-  color:transparent;-webkit-text-stroke:2px var(--gold);
-  letter-spacing:.02em;transition:color .3s;display:block;
-}
-.kit:hover .kit-num{color:rgba(233,185,73,.15)}
-.kit-name{font-family:var(--disp);font-weight:900;font-size:1.55rem;margin:.5rem 0 .1rem}
-.kit-age{font-size:.9rem;font-weight:600;letter-spacing:.08em;color:var(--gold);margin-bottom:.6rem}
-.kit p{margin:0;color:var(--muted);font-size:.97rem;line-height:1.75}
-.kit-tape{position:absolute;top:0;inset-inline:0;height:5px;background:linear-gradient(90deg,var(--gold-dk),var(--gold-lt),var(--gold-dk));z-index:1}
+.about-media img{width:min(60%,240px);filter:drop-shadow(0 20px 40px rgba(0,0,0,.7))}
 
-/* journey */
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.6rem 1.1rem}
-.step{position:relative;padding-top:1.9rem}
-.step::before{
-  content:"";position:absolute;top:9px;inset-inline:0;height:1px;
-  background:repeating-linear-gradient(to left,var(--line) 0 8px,transparent 8px 15px);
+/* ---------- squads (projects slot: editorial rows) ---------- */
+.rows{border-top:1px solid var(--hair)}
+.row{
+  display:grid;grid-template-columns:auto 1fr auto;gap:clamp(1rem,3vw,2.2rem);align-items:center;
+  padding:clamp(1.3rem,3vw,1.9rem) .4rem;border-bottom:1px solid var(--hair);
+  transition:background .25s,padding .25s;position:relative;
 }
-.step-n{
-  position:absolute;top:0;inset-inline-start:0;width:20px;height:20px;rotate:45deg;
-  background:var(--ink);border:1px solid var(--gold);
+.row:hover{background:linear-gradient(90deg,rgba(139,92,246,.09),transparent 70%);padding-inline-start:1.1rem}
+.row-num{
+  font-family:var(--num);font-weight:700;font-size:clamp(2.2rem,5vw,3.4rem);line-height:1;
+  color:transparent;-webkit-text-stroke:1.5px var(--gold);min-width:2.2ch;text-align:center;
+  transition:color .25s;
 }
-.step-n i{
-  position:absolute;inset:0;rotate:-45deg;display:grid;place-items:center;
-  font-family:var(--num);font-style:normal;font-size:.72rem;font-weight:600;color:var(--gold);
+.row:hover .row-num{color:rgba(233,185,73,.18)}
+.row-main h3{font-family:var(--disp);font-weight:900;font-size:clamp(1.5rem,3.4vw,2.1rem);margin:0;line-height:1.2}
+.row-main p{margin:.25rem 0 0;color:var(--muted);font-size:.98rem;max-width:56ch}
+.row-age{
+  font-family:var(--num);font-weight:500;font-size:.95rem;letter-spacing:.06em;color:var(--vio);
+  border:1px solid var(--line);border-radius:999px;padding:.4rem 1rem;white-space:nowrap;
 }
-.step h3{font-family:var(--disp);font-weight:800;font-size:1.28rem;margin:.4rem 0 .3rem}
-.step p{margin:0;color:var(--muted);font-size:.98rem}
 
-/* faq */
-.faq{border-top:1px solid var(--line);max-width:820px}
-.q{border-bottom:1px solid var(--line)}
+/* ---------- pillars (services slot: numbered) ---------- */
+.pillars{border-top:1px solid var(--hair)}
+.pillar{
+  display:grid;grid-template-columns:110px 1fr;gap:clamp(1rem,3vw,2rem);
+  padding:clamp(1.5rem,3.4vw,2.1rem) .4rem;border-bottom:1px solid var(--hair);
+  transition:background .25s;
+}
+.pillar:hover{background:linear-gradient(90deg,rgba(233,185,73,.06),transparent 70%)}
+.pillar-no{
+  font-family:var(--num);font-weight:600;font-size:clamp(1.6rem,3.6vw,2.4rem);color:var(--vio);
+  opacity:.85;line-height:1.2;
+}
+.pillar h3{font-family:var(--disp);font-weight:800;font-size:clamp(1.35rem,2.8vw,1.8rem);margin:0}
+.pillar p{margin:.35rem 0 0;color:var(--muted);font-size:.99rem;max-width:64ch}
+
+/* ---------- journey (blog cards slot) ---------- */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem}
+.step{
+  border:1px solid var(--hair);border-radius:18px;padding:1.4rem 1.3rem;
+  background:linear-gradient(170deg,rgba(139,92,246,.08),transparent 60%);
+  transition:transform .3s,border-color .3s;
+}
+.step:hover{transform:translateY(-6px);border-color:var(--vio)}
+.step-tag{font-family:var(--num);font-weight:500;font-size:.82rem;letter-spacing:.16em;color:var(--gold)}
+.step h3{font-family:var(--disp);font-weight:800;font-size:1.35rem;margin:.5rem 0 .3rem}
+.step p{margin:0;color:var(--muted);font-size:.96rem}
+
+/* ---------- mottos marquee (testimonials slot) ---------- */
+.mottos{overflow:hidden;padding-block:.4rem}
+.mo-track{display:flex;gap:1rem;width:max-content;animation:wm 32s linear infinite}
+.mottos:hover .mo-track{animation-play-state:paused}
+.mo{
+  width:min(76vw,330px);flex:none;border:1px solid var(--hair);border-radius:18px;
+  padding:1.4rem 1.3rem;background:linear-gradient(165deg,rgba(59,29,126,.25),rgba(12,7,20,.6));
+}
+.mo q{
+  font-family:var(--disp);font-weight:800;font-size:1.22rem;line-height:1.55;quotes:"“" "”";
+}
+.mo q::before,.mo q::after{color:var(--gold)}
+.mo span{display:block;margin-top:.8rem;font-size:.88rem;color:var(--vio);font-weight:600}
+
+/* ---------- faq ---------- */
+.faq{border-top:1px solid var(--hair);max-width:840px}
+.q{border-bottom:1px solid var(--hair)}
 .q summary{
-  list-style:none;cursor:pointer;padding:1.15rem .2rem;display:flex;gap:1rem;align-items:center;
-  font-family:var(--disp);font-weight:800;font-size:1.18rem;transition:color .2s;
+  list-style:none;cursor:pointer;padding:1.25rem .2rem;display:flex;gap:1rem;align-items:center;
+  font-family:var(--disp);font-weight:800;font-size:1.22rem;transition:color .2s;
 }
 .q summary::-webkit-details-marker{display:none}
-.q summary:hover{color:var(--gold-lt)}
+.q summary:hover{color:var(--vio)}
 .q summary::after{
   content:"";margin-inline-start:auto;width:11px;height:11px;flex:none;
-  border-inline-start:2px solid var(--gold);border-bottom:2px solid var(--gold);
+  border-inline-start:2px solid var(--vio);border-bottom:2px solid var(--vio);
   rotate:-45deg;transition:rotate .25s;
 }
 .q[open] summary::after{rotate:135deg}
-.q p{margin:0 0 1.2rem;color:var(--muted);padding-inline-start:.2rem;max-width:66ch}
+.q p{margin:0 0 1.25rem;color:var(--muted);padding-inline-start:.2rem;max-width:68ch}
 
-/* register */
+/* ---------- big CTA ---------- */
+.bigcta{text-align:center;position:relative;overflow:hidden}
+.bigcta::before{
+  content:"";position:absolute;inset:auto -20% -60%;height:120%;pointer-events:none;
+  background:radial-gradient(closest-side at 50% 100%,rgba(139,92,246,.25),transparent 70%);
+}
+.bigcta .label{justify-content:center}
+.bigcta a.huge{
+  display:inline-block;margin-top:.6rem;position:relative;
+  font-family:var(--disp);font-weight:900;line-height:1.05;
+  font-size:clamp(2.8rem,10vw,7rem);letter-spacing:-.02em;
+  background:linear-gradient(100deg,var(--gold-lt),var(--gold) 45%,var(--gold-dk));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  transition:transform .3s;
+}
+.bigcta a.huge:hover{transform:scale(1.02)}
+.bigcta a.huge::after{
+  content:"";position:absolute;bottom:.02em;inset-inline:0;height:3px;
+  background:linear-gradient(90deg,transparent,var(--vio),transparent);
+  transform:scaleX(.3);opacity:0;transition:transform .35s,opacity .35s;
+}
+.bigcta a.huge:hover::after{transform:scaleX(1);opacity:1}
+.bigcta p{color:var(--muted);margin:1rem auto 0;max-width:50ch}
+
+/* ---------- register ---------- */
 .reg{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(1.4rem,4vw,2.6rem);align-items:start}
 .card{
-  background:linear-gradient(165deg,rgba(59,29,126,.32),rgba(13,8,20,.92));
-  border:1px solid var(--line);border-radius:24px;padding:clamp(1.4rem,3.5vw,2.2rem);
+  background:linear-gradient(165deg,rgba(59,29,126,.24),rgba(13,8,22,.9));
+  border:1px solid var(--line);border-radius:22px;padding:clamp(1.4rem,3.5vw,2.2rem);
 }
 .field{margin-bottom:1rem}
-.field label{display:block;font-size:.92rem;font-weight:600;letter-spacing:.04em;color:var(--gold);margin-bottom:.4rem}
+.field label{display:block;font-size:.92rem;font-weight:600;color:var(--vio);margin-bottom:.4rem}
 .field input,.field select,.field textarea{
-  width:100%;background:rgba(7,4,9,.7);border:1px solid rgba(233,185,73,.2);border-radius:12px;
-  color:var(--chalk);font-family:var(--body);font-size:1rem;padding:.75rem .9rem;transition:border-color .2s,box-shadow .2s;
+  width:100%;background:rgba(10,6,18,.7);border:1px solid var(--line);border-radius:12px;
+  color:var(--chalk);font-family:var(--body);font-size:1rem;padding:.78rem .95rem;transition:border-color .2s,box-shadow .2s;
 }
 .field textarea{min-height:88px;resize:vertical}
-.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(233,185,73,.14);outline:none}
-.field select option{background:#140D20}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--vio);box-shadow:0 0 0 3px rgba(139,92,246,.16);outline:none}
+.field select option{background:#160E26}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 .form-note{font-size:.94rem;color:var(--muted);margin:.9rem 0 0}
 .contact-list{display:grid;gap:.9rem;margin:1.2rem 0 0}
 .contact-row{
-  display:flex;align-items:center;gap:.85rem;padding:.75rem .9rem;border:1px solid var(--line);
-  border-radius:14px;transition:border-color .2s,background .2s;cursor:default;
+  display:flex;align-items:center;gap:.85rem;padding:.8rem .95rem;border:1px solid var(--hair);
+  border-radius:14px;transition:border-color .2s,background .2s;
 }
-.contact-row:hover{border-color:var(--gold);background:rgba(59,29,126,.2)}
+a.contact-row:hover{border-color:var(--vio);background:rgba(139,92,246,.09)}
 .contact-row svg{width:22px;height:22px;color:var(--gold);flex:none}
-.contact-row b{display:block;font-family:var(--num);font-size:1.16rem;letter-spacing:.06em;font-weight:600}
+.contact-row b{display:block;font-family:var(--num);font-size:1.14rem;letter-spacing:.05em;font-weight:600}
 .contact-row small{color:var(--muted);font-size:.88rem}
-.motto{
-  margin-top:1.4rem;padding:1.1rem 1.2rem;border-radius:16px;border:1px dashed rgba(233,185,73,.35);
-  font-family:var(--disp);font-weight:800;font-size:1.15rem;line-height:1.5;
+.motto-box{
+  margin-top:1.4rem;padding:1.1rem 1.2rem;border-radius:16px;border:1px dashed var(--line);
+  font-family:var(--disp);font-weight:800;font-size:1.15rem;line-height:1.55;
 }
-.motto span{color:var(--gold)}
-
-/* footer */
-.foot{border-top:1px solid var(--line);padding:2.6rem 0 2rem;background:linear-gradient(180deg,transparent,rgba(59,29,126,.2))}
-.foot-in{display:flex;flex-wrap:wrap;gap:1.4rem;justify-content:space-between;align-items:center}
-.foot-brand{display:flex;align-items:center;gap:.85rem}
-.foot-brand img{width:64px;height:auto;filter:drop-shadow(0 3px 10px rgba(233,185,73,.35))}
-.foot-brand h4{font-family:var(--disp);font-weight:900;font-size:1.3rem;margin:0;line-height:1.15}
-.foot-brand small{color:var(--gold);font-size:.68rem;letter-spacing:.16em;font-weight:600}
-.foot-links{display:flex;gap:1.2rem;font-size:.96rem;color:var(--muted);flex-wrap:wrap}
-.foot-links a:hover{color:var(--gold-lt)}
-.foot-tag{width:100%;border-top:1px solid rgba(233,185,73,.12);margin-top:1.8rem;padding-top:1.2rem;color:var(--muted);font-size:.94rem;display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;justify-content:space-between}
-
-
-/* ---------- theme toggle ---------- */
-.theme-btn{
-  width:40px;height:40px;border-radius:50%;border:1px solid var(--line);flex:none;
-  background:transparent;color:var(--gold);display:grid;place-items:center;cursor:pointer;
-  transition:border-color .2s,transform .2s,background .2s;
-}
-.theme-btn:hover{border-color:var(--gold);transform:rotate(20deg)}
-.theme-btn svg{width:20px;height:20px}
-.theme-btn .ic-sun{display:block}
-.theme-btn .ic-moon{display:none}
-[data-theme="light"] .theme-btn .ic-sun{display:none}
-[data-theme="light"] .theme-btn .ic-moon{display:block}
-
-/* ---------- light theme ---------- */
-[data-theme="light"]{
-  --ink:#FAF5EA;
-  --ink-2:#F3ECDC;
-  --panel:#FFFDF7;
-  --chalk:#241536;
-  --muted:#63527A;
-  --gold:#A8791C;
-  --gold-lt:#C99B2A;
-  --gold-dk:#7E5710;
-  --line:rgba(154,106,20,.3);
-}
-[data-theme="light"] .nav{background:rgba(250,245,234,.82);border-bottom-color:rgba(154,106,20,.25)}
-[data-theme="light"] .nav.scrolled{box-shadow:0 14px 40px -22px rgba(60,30,90,.35)}
-[data-theme="light"] .nav-cta,[data-theme="light"] .btn-gold{
-  background:linear-gradient(135deg,#E9B949,#B8801F);color:#1B0F05;
-  box-shadow:0 14px 30px -14px rgba(184,128,31,.7);
-}
-[data-theme="light"] .hero::before{
-  background:
-    radial-gradient(closest-side at 26% 4%,rgba(109,40,217,.14),transparent 70%),
-    radial-gradient(closest-side at 80% 16%,rgba(59,29,126,.12),transparent 72%),
-    radial-gradient(closest-side at 55% 55%,rgba(233,185,73,.14),transparent 70%);
-}
-[data-theme="light"] .btn-ghost{background:rgba(109,40,217,.07);color:var(--chalk)}
-[data-theme="light"] .ticker{background:linear-gradient(90deg,rgba(109,40,217,.1),rgba(233,185,73,.08),rgba(109,40,217,.1))}
-[data-theme="light"] .band--tint{background:linear-gradient(180deg,transparent,rgba(109,40,217,.07),transparent)}
-[data-theme="light"] .pillar{
-  background:linear-gradient(165deg,#FFFDF7,#F6EFDF);
-  box-shadow:0 14px 30px -22px rgba(60,30,90,.25);
-}
-[data-theme="light"] .pillar:hover{box-shadow:0 26px 46px -26px rgba(60,30,90,.4)}
-[data-theme="light"] .card{background:linear-gradient(165deg,#FFFDF7,#F5EDDB);box-shadow:0 18px 40px -28px rgba(60,30,90,.3)}
-[data-theme="light"] .field input,[data-theme="light"] .field select,[data-theme="light"] .field textarea{
-  background:#FFFEFB;border-color:rgba(154,106,20,.35);
-}
-[data-theme="light"] .field select option{background:#FFFEFB}
-[data-theme="light"] .contact-row:hover{background:rgba(109,40,217,.07)}
-[data-theme="light"] .foot{background:linear-gradient(180deg,transparent,rgba(109,40,217,.08))}
-[data-theme="light"] .pitch{
-  background:repeating-linear-gradient(to right,rgba(154,106,20,.22) 0 1px,transparent 1px 92px);
-}
-/* jerseys & crest stay dark plaques in light mode */
-[data-theme="light"] .kit{
-  --chalk:#F4EFE6;--muted:#B4A6C9;--gold:#E9B949;
-  border-color:rgba(233,185,73,.35);color:#F4EFE6;
-  box-shadow:0 20px 40px -24px rgba(30,15,60,.55);
-}
-[data-theme="light"] .kit-num{-webkit-text-stroke:2px #E9B949}
-[data-theme="light"] .crest,[data-theme="light"] .brand img,[data-theme="light"] .foot-brand img{
-  background:radial-gradient(circle at 50% 32%,#1D1130,#070409 74%);
-  box-shadow:0 0 0 1px rgba(168,121,28,.5),0 22px 46px -22px rgba(25,12,50,.6);
-}
-[data-theme="light"] .crest{border-radius:26px}
-[data-theme="light"] .brand img{border-radius:10px}
-[data-theme="light"] .foot-brand img{border-radius:14px}
-
+.motto-box span{color:var(--gold)}
 
 /* ---------- map ---------- */
-.map-wrap{
-  display:grid;grid-template-columns:1.15fr .85fr;gap:1.1rem;align-items:stretch;
-}
+.map-wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:1.1rem;align-items:stretch}
 .map-frame{
   position:relative;border-radius:22px;overflow:hidden;border:1px solid var(--line);
-  min-height:340px;background:var(--panel);
-  box-shadow:0 26px 50px -30px rgba(0,0,0,.75);
+  min-height:340px;background:var(--panel);box-shadow:0 26px 50px -30px rgba(0,0,0,.7);
 }
-.map-frame iframe{
-  position:absolute;inset:0;width:100%;height:100%;border:0;
-  filter:grayscale(.25) saturate(1.15) contrast(1.05);
-}
-[data-theme="light"] .map-frame iframe{filter:grayscale(.1) saturate(1.05)}
-.map-frame::after{
-  content:"";position:absolute;inset:0;pointer-events:none;border-radius:22px;
-  box-shadow:inset 0 0 0 1px rgba(233,185,73,.18),inset 0 30px 60px -40px rgba(0,0,0,.7);
-}
-.map-pin{
-  position:absolute;top:50%;left:50%;translate:-50% -100%;z-index:2;pointer-events:none;
-  filter:drop-shadow(0 10px 14px rgba(0,0,0,.55));
-}
+.map-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(.25) saturate(1.1)}
+[data-theme="light"] .map-frame iframe{filter:grayscale(.08)}
+.map-pin{position:absolute;top:50%;left:50%;translate:-50% -100%;z-index:2;pointer-events:none;filter:drop-shadow(0 10px 14px rgba(0,0,0,.5))}
 .map-pin svg{width:40px;height:40px;animation:pinDrop .7s cubic-bezier(.2,.9,.25,1) both}
 @keyframes pinDrop{from{transform:translateY(-26px) scale(.6);opacity:0}}
-.map-pin i{
-  display:block;width:14px;height:5px;margin:2px auto 0;border-radius:50%;
-  background:rgba(0,0,0,.35);filter:blur(2px);
-  animation:pinShadow .7s ease both;
-}
-@keyframes pinShadow{from{transform:scaleX(.2);opacity:0}}
 .map-card{display:flex;flex-direction:column;justify-content:space-between;gap:1.2rem}
-.map-addr{display:flex;gap:.9rem;align-items:flex-start}
+.map-addr{display:flex;gap:.9rem;align-items:flex-start;margin-top:.9rem}
 .map-addr svg{width:26px;height:26px;color:var(--gold);flex:none;margin-top:2px}
 .map-addr h3{font-family:var(--disp);font-weight:800;font-size:1.3rem;margin:0 0 .3rem}
-.map-addr p{margin:0;color:var(--muted);font-size:.98rem;line-height:1.75}
+.map-addr p{margin:0;color:var(--muted);font-size:.98rem}
 .map-actions{display:flex;flex-direction:column;gap:.7rem}
 .map-actions .btn{width:100%;justify-content:center}
 
-/* reveal */
+/* ---------- footer (giant wordmark) ---------- */
+.foot{border-top:1px solid var(--hair);padding:3rem 0 1.4rem;position:relative;overflow:hidden}
+.foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:2rem}
+.foot h4{font-family:var(--disp);font-weight:800;font-size:1.15rem;margin:0 0 .7rem;color:var(--vio)}
+.foot p{margin:0;color:var(--muted);font-size:.96rem;max-width:34ch}
+.foot-list{display:grid;gap:.5rem;font-size:.96rem;color:var(--muted)}
+.foot-list a:hover{color:var(--chalk)}
+.foot-brandline{display:flex;align-items:center;gap:.7rem;margin-bottom:1rem}
+.foot-brandline img{width:52px}
+.visitors{
+  display:inline-flex;align-items:center;gap:.55rem;margin-top:1rem;
+  padding:.45rem 1rem;border-radius:999px;border:1px solid var(--hair);
+  background:linear-gradient(135deg,rgba(139,92,246,.12),rgba(233,185,73,.08));
+  font-size:.94rem;color:var(--muted);
+}
+.visitors svg{width:18px;height:18px;color:var(--gold);flex:none}
+.visitors b{
+  font-family:var(--num);font-weight:600;font-size:1.05rem;letter-spacing:.04em;
+  background:linear-gradient(180deg,var(--gold-lt),var(--gold-dk));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.visitors[hidden]{display:none}
+.foot-mark{
+  font-family:var(--disp);font-weight:900;line-height:.95;text-align:center;user-select:none;
+  font-size:clamp(4rem,17vw,12rem);letter-spacing:-.02em;margin-top:2rem;
+  background:linear-gradient(100deg,var(--vio) 0%,var(--gold) 60%,var(--gold-dk));
+  -webkit-background-clip:text;background-clip:text;color:transparent;opacity:.92;
+}
+.foot-base{
+  display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+  border-top:1px solid var(--hair);margin-top:1.6rem;padding-top:1.1rem;
+  color:var(--muted);font-size:.92rem;
+}
+
+/* ---------- reveal ---------- */
 .rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.9,.25,1)}
 .rv.on{opacity:1;transform:none}
 
-/* responsive */
-@media (max-width:900px){
-  .hero-in{grid-template-columns:1fr;text-align:center}
-  .crest-box{order:-1}
-  .crest{width:min(66%,300px)}
-  .crest-ring{width:min(74%,330px)}
-  .eyebrow{justify-content:center}
-  .eyebrow::after{display:none}
-  .hero p.lead{margin-inline:auto}
-  .hero-cta{justify-content:center}
-  .stats{grid-template-columns:repeat(2,1fr)}
-  .reg{grid-template-columns:1fr}
+/* ---------- light theme ---------- */
+[data-theme="light"]{
+  --ink:#F8F5FD;
+  --ink-2:#F0EAF9;
+  --panel:#FFFFFF;
+  --chalk:#1D1230;
+  --muted:#5F5178;
+  --vio:#6D28D9;
+  --vio-deep:#3B1D7E;
+  --gold:#A8791C;
+  --gold-lt:#C99B2A;
+  --gold-dk:#7E5710;
+  --line:rgba(109,40,217,.25);
+  --hair:rgba(109,40,217,.16);
+}
+[data-theme="light"] .nav{background:rgba(248,245,253,.82)}
+[data-theme="light"] .nav-cta,[data-theme="light"] .btn-gold{
+  background:linear-gradient(135deg,#E9B949,#B8801F);color:#1B0F05;
+  box-shadow:0 14px 30px -14px rgba(184,128,31,.6);
+}
+[data-theme="light"] .hero::before{
+  background:
+    radial-gradient(closest-side at 22% 8%,rgba(139,92,246,.14),transparent 68%),
+    radial-gradient(closest-side at 82% 20%,rgba(233,185,73,.12),transparent 70%);
+}
+[data-theme="light"] .wm-ar{background:linear-gradient(100deg,#D9A72E,#B8801F 50%,#8A5F12);-webkit-background-clip:text;background-clip:text}
+[data-theme="light"] .stage,[data-theme="light"] .about-media{
+  background:radial-gradient(120% 90% at 50% 0%,rgba(109,40,217,.4),transparent 60%),linear-gradient(170deg,#241640,#0E081C 70%);
+}
+[data-theme="light"] .card{background:#FFFFFF;box-shadow:0 18px 40px -28px rgba(60,30,110,.3)}
+[data-theme="light"] .field input,[data-theme="light"] .field select,[data-theme="light"] .field textarea{background:#FDFCFF}
+[data-theme="light"] .field select option{background:#FDFCFF}
+[data-theme="light"] .step,[data-theme="light"] .mo{background:#FFFFFF;box-shadow:0 12px 26px -20px rgba(60,30,110,.25)}
+[data-theme="light"] .row-num{-webkit-text-stroke:1.5px #B8801F}
+[data-theme="light"] .visitors{background:linear-gradient(135deg,rgba(109,40,217,.08),rgba(233,185,73,.1))}
+
+/* ---------- responsive ---------- */
+@media (max-width:920px){
+  .hero-grid,.about,.reg,.map-wrap{grid-template-columns:1fr}
+  .stage{order:-1;min-height:320px}
+  .stats{grid-template-columns:repeat(2,1fr);gap:1.6rem 1.2rem}
+  .foot-grid{grid-template-columns:1fr 1fr}
 }
 @media (max-width:760px){
   .nav-links{
-    position:fixed;inset:62px 0 auto;flex-direction:column;gap:0;background:rgba(10,6,16,.98);
-    border-bottom:1px solid var(--line);padding:.5rem 1.2rem 1.2rem;display:none;
+    position:fixed;inset:62px 0 auto;flex-direction:column;gap:0;z-index:70;
+    background:color-mix(in srgb,var(--ink) 97%,transparent);
+    border-bottom:1px solid var(--hair);padding:.5rem 1.3rem 1.2rem;display:none;
   }
   .nav-links.open{display:flex}
-  .nav-links a{padding:.85rem 0;width:100%;border-bottom:1px solid rgba(233,185,73,.1)}
-  .nav-links a::after{display:none}
+  .nav-links a{padding:.85rem 0;width:100%;border-bottom:1px solid var(--hair)}
   .nav-cta{display:none}
   .burger{display:block}
   .theme-btn{width:36px;height:36px}
+  .row{grid-template-columns:auto 1fr}
+  .row-age{grid-column:2;justify-self:start}
+  .pillar{grid-template-columns:64px 1fr}
   .row2{grid-template-columns:1fr}
-  .sec-lead{margin-inline:auto}
-  .head{text-align:center}
+  .foot-grid{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition-duration:.01ms!important}
   .rv{opacity:1;transform:none}
-  #dust{display:none}
   html{scroll-behavior:auto}
 }
 </style>
@@ -494,16 +468,16 @@ a{color:inherit;text-decoration:none}
 <header class="nav" id="nav">
   <div class="wrap nav-in">
     <a class="brand" href="#top">
-      <img src="logo.png" alt="" width="44" height="61">
-      <span>أكاديمية قلب الأسد<small>LION HEART ACADEMY</small></span>
+      <img src="logo.png" alt="" width="44" height="59">
+      <span>قلب الأسد<small>LION HEART ACADEMY</small></span>
     </a>
     <nav class="nav-links" id="menu">
-      <a href="#why">لماذا نحن</a>
+      <a href="#about">من نحن</a>
       <a href="#squads">الفئات</a>
-      <a href="#path">مسار اللاعب</a>
-      <a href="#faq">أسئلة شائعة</a>
+      <a href="#pillars">ركائزنا</a>
+      <a href="#faq">الأسئلة</a>
       <a href="#location">الموقع</a>
-      <a href="#join">تواصل معنا</a>
+      <a href="#join">التسجيل</a>
     </nav>
     <a class="nav-cta" href="#join">سجّل ابنك</a>
     <button class="theme-btn" id="themeBtn" aria-label="تبديل بين الوضع الليلي والنهاري" title="تبديل الثيم">
@@ -518,182 +492,177 @@ a{color:inherit;text-decoration:none}
 
 <!-- ============ HERO ============ -->
 <section class="hero" id="top">
-  <canvas id="dust" aria-hidden="true"></canvas>
-  <div class="pitch"></div>
-  <div class="chev tl"></div><div class="chev br"></div>
-  <div class="wrap hero-in">
-    <div>
-      <p class="eyebrow">كرة قدم للناشئين — من ٥ سنوات فما فوق</p>
-      <h1>
-        <span class="l"><span>نصنع الأبطال…</span></span>
-        <span class="l"><span><em class="gold" style="font-style:normal">قبل البطولات</em></span></span>
-      </h1>
-      <p class="lead">تدريب أسبوعي منظّم، مدرّبون معتمدون، وبيئة تبني الشخصية قبل المهارة. ابدأ رحلة ابنك اليوم بحصة تقييم واحدة.</p>
+  <div class="wrap hero-top">
+    <p class="hero-kicker">أكاديمية كرة قدم للناشئين — <b>من ٥ سنوات فما فوق</b></p>
+    <p class="hero-kicker">جازان، المملكة العربية السعودية</p>
+  </div>
+
+  <div class="wordmark" aria-hidden="true">
+    <div class="wm-track">
+      <span class="wm-ar">قلب الأسد</span><span class="wm-star">✦</span><span class="wm-en">Lion Heart</span><span class="wm-star">✦</span>
+      <span class="wm-ar">قلب الأسد</span><span class="wm-star">✦</span><span class="wm-en">Lion Heart</span><span class="wm-star">✦</span>
+    </div>
+  </div>
+
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="sub">نصنع الأبطال… <span class="goldgrad">قبل البطولات.</span></p>
+      <p class="desc">تدريب أسبوعي منظّم، مدرّبون معتمدون، وبيئة تبني الشخصية قبل المهارة. ابدأ رحلة ابنك بحصة تقييم واحدة.</p>
       <div class="hero-cta">
         <a class="btn btn-gold" href="#join">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>
           سجّل ابنك الآن
         </a>
-        <a class="btn btn-ghost" href="https://wa.me/966541977760?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A7%D9%84%D8%AA%D8%B3%D8%AC%D9%8A%D9%84%20%D9%81%D9%8A%20%D8%A3%D9%83%D8%A7%D8%AF%D9%8A%D9%85%D9%8A%D8%A9%20%D9%82%D9%84%D8%A8%20%D8%A7%D9%84%D8%A3%D8%B3%D8%AF" target="_blank" rel="noopener">
+        <a class="btn btn-line" href="https://wa.me/966541977760?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A7%D9%84%D8%AA%D8%B3%D8%AC%D9%8A%D9%84%20%D9%81%D9%8A%20%D8%A3%D9%83%D8%A7%D8%AF%D9%8A%D9%85%D9%8A%D8%A9%20%D9%82%D9%84%D8%A8%20%D8%A7%D9%84%D8%A3%D8%B3%D8%AF" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.5 14.2c-.2.6-1.3 1.2-1.8 1.2-.5 0-.5.4-3.2-.7a11.4 11.4 0 0 1-4.6-4.3c-.3-.6-.9-1.7-.9-2.6 0-.9.5-1.4.7-1.6.2-.2.4-.3.6-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2 0 .4-.1.5l-.4.5c-.1.2-.3.3-.1.6.2.4.8 1.4 1.7 2.2 1.1 1 2 1.3 2.3 1.4.2.1.4.1.6-.1l.7-.8c.2-.2.3-.2.6-.1l2 .9c.2.1.3.2.3.4v.3z"/></svg>
           واتساب مباشر
         </a>
       </div>
     </div>
-    <div class="crest-box">
-      <div class="crest-halo"></div>
-      <div class="crest-ring"></div>
-      <img class="crest" src="logo.png" alt="شعار أكاديمية قلب الأسد" width="620" height="830">
-      <div class="crest-podium"></div>
+    <div class="stage rv">
+      <img src="logo.png" alt="شعار أكاديمية قلب الأسد" width="620" height="830">
     </div>
   </div>
-  <div class="wrap">
-    <div class="stats rv">
-      <div class="stat"><b data-count="4">0</b><span>فئات عمرية</span></div>
-      <div class="stat"><b data-count="3">0</b><span>حصص أسبوعياً</span></div>
-      <div class="stat"><b data-count="5">0</b><span>سنوات — أصغر عمر للقبول</span></div>
-      <div class="stat"><b>∞</b><span>شغف بالكرة</span></div>
+
+  <div class="values" aria-hidden="true">
+    <div class="wrap"><span class="label">قيمنا</span></div>
+    <div class="v-track">
+      <span class="v-item">شجاعة<i>✦</i>انضباط<i>✦</i>احترام<i>✦</i>تطوير<i>✦</i>فريق واحد … هدف واحد<i>✦</i></span>
+      <span class="v-item">شجاعة<i>✦</i>انضباط<i>✦</i>احترام<i>✦</i>تطوير<i>✦</i>فريق واحد … هدف واحد<i>✦</i></span>
     </div>
   </div>
 </section>
 
-<!-- ============ TICKER ============ -->
-<div class="ticker" aria-hidden="true">
-  <div class="ticker-track">
-    <div class="ticker-item">شجاعة<i>·</i>انضباط<i>·</i>احترام<i>·</i>تطوير<i>·</i>فريق واحد … هدف واحد</div>
-    <div class="ticker-item">شجاعة<i>·</i>انضباط<i>·</i>احترام<i>·</i>تطوير<i>·</i>فريق واحد … هدف واحد</div>
-    <div class="ticker-item">شجاعة<i>·</i>انضباط<i>·</i>احترام<i>·</i>تطوير<i>·</i>فريق واحد … هدف واحد</div>
-    <div class="ticker-item">شجاعة<i>·</i>انضباط<i>·</i>احترام<i>·</i>تطوير<i>·</i>فريق واحد … هدف واحد</div>
-  </div>
-</div>
-
-<!-- ============ WHY ============ -->
-<section class="band" id="why">
-  <div class="wrap">
-    <div class="head rv">
-      <p class="eyebrow">ما الذي يميّزنا</p>
-      <h2 class="sec-title">خمس ركائز <span class="gold">نبني عليها</span> كل حصة</h2>
-      <p class="sec-lead">الأكاديمية ليست ملعباً ووقتاً فقط. هذه هي القواعد التي يعمل بها المدرّب مع ابنك في كل تمرين.</p>
-    </div>
-    <div class="pillars">
-      <article class="pillar rv">
-        <svg class="pillar-ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M24 41s-14-8.2-14-18a7.4 7.4 0 0 1 14-3.6A7.4 7.4 0 0 1 38 23c0 9.8-14 18-14 18z"/>
-          <circle cx="24" cy="22" r="4"/><path d="M24 26v4M20 22l-3-1M28 22l3-1"/>
-        </svg>
-        <h3>غرس القيم والانضباط</h3>
-        <p>نبدأ من الأخلاق: الالتزام بالموعد، احترام الخصم والحكم، وتحمّل المسؤولية داخل الملعب وخارجه.</p>
-      </article>
-      <article class="pillar rv">
-        <svg class="pillar-ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="24" cy="20" r="8"/><path d="M24 12l3.5 4-3.5 4-3.5-4z"/>
-          <path d="M10 42c1.5-7 7-11 14-11s12.5 4 14 11"/>
-        </svg>
-        <h3>تطوير المهارات القيادية</h3>
-        <p>قيادة المجموعة، اتخاذ القرار تحت الضغط، والثقة بالنفس — مهارات تبقى مع ابنك بعد صافرة النهاية.</p>
-      </article>
-      <article class="pillar rv">
-        <svg class="pillar-ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M8 40h32"/><path d="M13 40V30M21 40V22M29 40V26M37 40V14"/>
-          <path d="M12 20l8-7 7 5 11-10"/><path d="M32 8h6v6"/>
-        </svg>
-        <h3>برامج تدريبية حديثة</h3>
-        <p>مناهج مبنية على المرحلة العمرية: تحكّم بالكرة، لياقة آمنة، وفهم تكتيكي يتدرّج مع نمو اللاعب.</p>
-      </article>
-      <article class="pillar rv">
-        <svg class="pillar-ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="8" y="8" width="32" height="26" rx="4"/><circle cx="19" cy="18" r="4"/>
-          <path d="M13 28c1-3 3-4.5 6-4.5s5 1.5 6 4.5"/><path d="M30 16h6M30 22h6"/><path d="M16 40h16"/>
-        </svg>
-        <h3>مدرّبون معتمدون</h3>
-        <p>طاقم مؤهل بشهادات تدريب، ومتابعة فردية لكل لاعب مع تقرير تطوّر دوري يصل لولي الأمر.</p>
-      </article>
-      <article class="pillar rv">
-        <svg class="pillar-ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M24 6l14 6v10c0 10-6 17-14 20-8-3-14-10-14-20V12z"/>
-          <path d="M18 24l4 4 9-9"/>
-        </svg>
-        <h3>بيئة احترافية متكاملة</h3>
-        <p>ملاعب مجهّزة، إشراف على السلامة، وتنظيم واضح للحصة من لحظة الوصول حتى تسليم اللاعب.</p>
-      </article>
-    </div>
+<!-- ============ STATS ============ -->
+<section class="band">
+  <div class="wrap stats">
+    <div class="stat rv"><b><span data-count="4">0</span></b><h3>فئات عمرية</h3><p>مجموعات مقسّمة حسب العمر والمستوى.</p></div>
+    <div class="stat rv"><b><span data-count="3">0</span></b><h3>حصص أسبوعياً</h3><p>تدريب منتظم لكل فئة على مدار الأسبوع.</p></div>
+    <div class="stat rv"><b><span data-count="5">0</span>+</b><h3>سنوات فما فوق</h3><p>أصغر عمر نستقبله في فئة البراعم.</p></div>
+    <div class="stat rv"><b>∞</b><h3>شغف بالكرة</h3><p>هذا الرقم الوحيد الذي لا نقيسه.</p></div>
   </div>
 </section>
 
-<div class="ribbon" aria-hidden="true"><i></i><b></b></div>
+<!-- ============ ABOUT ============ -->
+<section class="band" id="about" style="padding-top:0">
+  <div class="wrap about">
+    <div class="rv">
+      <span class="label">من نحن</span>
+      <h2 class="h2">نبني اللاعب <span class="viotext">إنساناً</span> قبل أن نبنيه <span class="goldgrad">نجماً.</span></h2>
+      <p class="lead">أكاديمية قلب الأسد ليست ملعباً ووقتاً فقط. نؤمن أن البطل الحقيقي يبدأ من الأخلاق: الالتزام، احترام الخصم، وتحمّل المسؤولية — ثم تأتي المهارة لتكتمل الصورة. كل حصة مبنية بعناية على المرحلة العمرية، وكل لاعب يُتابَع بشكل فردي مع تقرير تطوّر يصل لولي أمره.</p>
+    </div>
+    <div class="about-media rv">
+      <img src="logo.png" alt="" loading="lazy">
+    </div>
+  </div>
+</section>
 
 <!-- ============ SQUADS ============ -->
-<section class="band band--tint" id="squads">
+<section class="band" id="squads">
   <div class="wrap">
-    <div class="head rv">
-      <p class="eyebrow">الفئات العمرية</p>
-      <h2 class="sec-title">اختر <span class="gold">قميص ابنك</span></h2>
-      <p class="sec-lead">الرقم على القميص هو أول عمر تقبله الفئة. كل مجموعة لها منهج ومدرّب وأهداف تخصّها.</p>
+    <div class="rv" style="margin-bottom:2rem">
+      <span class="label">الفئات العمرية</span>
+      <h2 class="h2">اختر <span class="goldgrad">قميص ابنك</span></h2>
+      <p class="lead">الرقم هو أول عمر تقبله الفئة. كل مجموعة لها منهج ومدرّب وأهداف تخصّها.</p>
     </div>
-    <div class="squads">
-      <article class="kit rv"><i class="kit-tape"></i>
-        <span class="kit-num">05</span>
-        <h3 class="kit-name">براعم</h3>
-        <p class="kit-age">٥ – ٧ سنوات</p>
-        <p>اللعب أولاً: تنسيق حركي، إحساس بالكرة، وحب اللعبة قبل أي شيء آخر.</p>
-      </article>
-      <article class="kit rv"><i class="kit-tape"></i>
-        <span class="kit-num">08</span>
-        <h3 class="kit-name">أشبال</h3>
-        <p class="kit-age">٨ – ١٠ سنوات</p>
-        <p>أساسيات التمرير والاستلام والمراوغة داخل مساحات صغيرة وألعاب تنافسية قصيرة.</p>
-      </article>
-      <article class="kit rv"><i class="kit-tape"></i>
-        <span class="kit-num">11</span>
-        <h3 class="kit-name">ناشئون</h3>
-        <p class="kit-age">١١ – ١٣ سنة</p>
-        <p>المراكز والواجبات التكتيكية، بناء اللياقة الخاصة، وقراءة اللعب داخل الفريق.</p>
-      </article>
-      <article class="kit rv"><i class="kit-tape"></i>
-        <span class="kit-num">14</span>
-        <h3 class="kit-name">شباب</h3>
-        <p class="kit-age">١٤ سنة فأكثر</p>
-        <p>لعب تنافسي، تحليل أداء بالفيديو، وإعداد بدني وذهني لاختبارات الأندية.</p>
-      </article>
+    <div class="rows">
+      <div class="row rv">
+        <span class="row-num">05</span>
+        <div class="row-main"><h3>براعم</h3><p>اللعب أولاً: تنسيق حركي، إحساس بالكرة، وحب اللعبة قبل أي شيء آخر.</p></div>
+        <span class="row-age">٥ – ٧ سنوات</span>
+      </div>
+      <div class="row rv">
+        <span class="row-num">08</span>
+        <div class="row-main"><h3>أشبال</h3><p>أساسيات التمرير والاستلام والمراوغة داخل مساحات صغيرة وألعاب تنافسية قصيرة.</p></div>
+        <span class="row-age">٨ – ١٠ سنوات</span>
+      </div>
+      <div class="row rv">
+        <span class="row-num">11</span>
+        <div class="row-main"><h3>ناشئون</h3><p>المراكز والواجبات التكتيكية، بناء اللياقة الخاصة، وقراءة اللعب داخل الفريق.</p></div>
+        <span class="row-age">١١ – ١٣ سنة</span>
+      </div>
+      <div class="row rv">
+        <span class="row-num">14</span>
+        <div class="row-main"><h3>شباب</h3><p>لعب تنافسي، تحليل أداء بالفيديو، وإعداد بدني وذهني لاختبارات الأندية.</p></div>
+        <span class="row-age">١٤ سنة فأكثر</span>
+      </div>
     </div>
   </div>
 </section>
 
-<div class="ribbon" aria-hidden="true"><i></i><b></b></div>
-
-<!-- ============ PATH ============ -->
-<section class="band" id="path">
+<!-- ============ PILLARS ============ -->
+<section class="band" id="pillars">
   <div class="wrap">
-    <div class="head rv">
-      <p class="eyebrow">من التسجيل إلى الملعب</p>
-      <h2 class="sec-title">أربع خطوات <span class="gold">لا أكثر</span></h2>
-      <p class="sec-lead">هذه هي الرحلة الكاملة لكل لاعب جديد، بالترتيب.</p>
+    <div class="rv" style="margin-bottom:2rem">
+      <span class="label">ركائزنا</span>
+      <h2 class="h2">خمس ركائز نبني عليها <span class="viotext">كل حصة</span></h2>
+    </div>
+    <div class="pillars">
+      <div class="pillar rv"><span class="pillar-no">01</span>
+        <div><h3>غرس القيم والانضباط</h3><p>نبدأ من الأخلاق: الالتزام بالموعد، احترام الخصم والحكم، وتحمّل المسؤولية داخل الملعب وخارجه.</p></div>
+      </div>
+      <div class="pillar rv"><span class="pillar-no">02</span>
+        <div><h3>تطوير المهارات القيادية</h3><p>قيادة المجموعة، اتخاذ القرار تحت الضغط، والثقة بالنفس — مهارات تبقى مع ابنك بعد صافرة النهاية.</p></div>
+      </div>
+      <div class="pillar rv"><span class="pillar-no">03</span>
+        <div><h3>برامج تدريبية حديثة</h3><p>مناهج مبنية على المرحلة العمرية: تحكّم بالكرة، لياقة آمنة، وفهم تكتيكي يتدرّج مع نمو اللاعب.</p></div>
+      </div>
+      <div class="pillar rv"><span class="pillar-no">04</span>
+        <div><h3>مدرّبون معتمدون</h3><p>طاقم مؤهل بشهادات تدريب، ومتابعة فردية لكل لاعب مع تقرير تطوّر دوري يصل لولي الأمر.</p></div>
+      </div>
+      <div class="pillar rv"><span class="pillar-no">05</span>
+        <div><h3>بيئة احترافية متكاملة</h3><p>ملاعب مجهّزة، إشراف على السلامة، وتنظيم واضح للحصة من لحظة الوصول حتى تسليم اللاعب.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ JOURNEY ============ -->
+<section class="band">
+  <div class="wrap">
+    <div class="rv" style="margin-bottom:2rem">
+      <span class="label">من التسجيل إلى الملعب</span>
+      <h2 class="h2">أربع خطوات <span class="goldgrad">لا أكثر</span></h2>
     </div>
     <div class="steps">
-      <div class="step rv"><span class="step-n"><i>1</i></span>
-        <h3>التسجيل</h3><p>املأ النموذج أو راسلنا على واتساب، ونعاود التواصل خلال ٢٤ ساعة لتأكيد الموعد.</p>
-      </div>
-      <div class="step rv"><span class="step-n"><i>2</i></span>
-        <h3>حصة التقييم</h3><p>حصة واحدة يلعب فيها ابنك مع مجموعته المتوقعة، ويحدد المدرّب المستوى المناسب.</p>
-      </div>
-      <div class="step rv"><span class="step-n"><i>3</i></span>
-        <h3>الانضمام</h3><p>استلام الزي الرسمي وجدول الحصص، وبدء المنهج التدريبي مع مدرّب الفئة.</p>
-      </div>
-      <div class="step rv"><span class="step-n"><i>4</i></span>
-        <h3>المنافسة</h3><p>مباريات ودية وبطولات داخلية وخارجية، مع تقرير تطوّر دوري لولي الأمر.</p>
-      </div>
+      <div class="step rv"><span class="step-tag">الخطوة ٠١</span><h3>التسجيل</h3><p>املأ النموذج أو راسلنا على واتساب، ونعاود التواصل خلال ٢٤ ساعة لتأكيد الموعد.</p></div>
+      <div class="step rv"><span class="step-tag">الخطوة ٠٢</span><h3>حصة التقييم</h3><p>حصة واحدة يلعب فيها ابنك مع مجموعته المتوقعة، ويحدد المدرّب المستوى المناسب.</p></div>
+      <div class="step rv"><span class="step-tag">الخطوة ٠٣</span><h3>الانضمام</h3><p>استلام الزي الرسمي وجدول الحصص، وبدء المنهج التدريبي مع مدرّب الفئة.</p></div>
+      <div class="step rv"><span class="step-tag">الخطوة ٠٤</span><h3>المنافسة</h3><p>مباريات ودية وبطولات داخلية وخارجية، مع تقرير تطوّر دوري لولي الأمر.</p></div>
     </div>
   </div>
 </section>
 
-<div class="ribbon" aria-hidden="true"><i></i><b></b></div>
+<!-- ============ MOTTOS ============ -->
+<section class="band" style="padding-top:0">
+  <div class="wrap rv" style="margin-bottom:1.6rem">
+    <span class="label">مبادئ الملعب</span>
+    <h2 class="h2">عبارات <span class="viotext">نردّدها</span> في كل تمرين</h2>
+  </div>
+  <div class="mottos rv" aria-hidden="true">
+    <div class="mo-track">
+      <div class="mo"><q>الموهبة تفتح الباب، والانضباط يبقيك داخل الملعب.</q><span>— قلب الأسد</span></div>
+      <div class="mo"><q>نحترم الخصم قبل أن نراوغه.</q><span>— قلب الأسد</span></div>
+      <div class="mo"><q>الخطأ جزء من التمرين، والاستسلام ليس كذلك.</q><span>— قلب الأسد</span></div>
+      <div class="mo"><q>فريق واحد … هدف واحد.</q><span>— قلب الأسد</span></div>
+      <div class="mo"><q>التمريرة الصحيحة أجمل من المراوغة الزائدة.</q><span>— قلب الأسد</span></div>
+      <div class="mo"><q>نلعب بشجاعة، ونخسر بكرامة، ونفوز بتواضع.</q><span>— قلب الأسد</span></div>
+      <div class="mo"><q>الموهبة تفتح الباب، والانضباط يبقيك داخل الملعب.</q><span>— قلب الأسد</span></div>
+      <div class="mo"><q>نحترم الخصم قبل أن نراوغه.</q><span>— قلب الأسد</span></div>
+      <div class="mo"><q>الخطأ جزء من التمرين، والاستسلام ليس كذلك.</q><span>— قلب الأسد</span></div>
+      <div class="mo"><q>فريق واحد … هدف واحد.</q><span>— قلب الأسد</span></div>
+      <div class="mo"><q>التمريرة الصحيحة أجمل من المراوغة الزائدة.</q><span>— قلب الأسد</span></div>
+      <div class="mo"><q>نلعب بشجاعة، ونخسر بكرامة، ونفوز بتواضع.</q><span>— قلب الأسد</span></div>
+    </div>
+  </div>
+</section>
 
 <!-- ============ FAQ ============ -->
-<section class="band band--tint" id="faq">
+<section class="band" id="faq" style="padding-top:0">
   <div class="wrap">
-    <div class="head rv">
-      <p class="eyebrow">قبل أن تسجّل</p>
-      <h2 class="sec-title">أسئلة <span class="gold">يسألها كل ولي أمر</span></h2>
+    <div class="rv" style="margin-bottom:1.6rem">
+      <span class="label">قبل أن تسجّل</span>
+      <h2 class="h2">كل ما قد يسأله <span class="goldgrad">ولي الأمر</span></h2>
     </div>
     <div class="faq rv">
       <details class="q"><summary>ما العمر المناسب للانضمام؟</summary>
@@ -715,13 +684,22 @@ a{color:inherit;text-decoration:none}
   </div>
 </section>
 
+<!-- ============ BIG CTA ============ -->
+<section class="band bigcta">
+  <div class="wrap rv">
+    <span class="label">جاهز للبدء؟</span><br>
+    <a class="huge" href="#join">سجّل ابنك الآن.</a>
+    <p>حصة تقييم واحدة تفصل ابنك عن بداية رحلته نحو الاحتراف.</p>
+  </div>
+</section>
+
 <!-- ============ REGISTER ============ -->
-<section class="band" id="join">
+<section class="band" id="join" style="padding-top:0">
   <div class="wrap">
-    <div class="head rv">
-      <p class="eyebrow">سجّل معنا الآن</p>
-      <h2 class="sec-title">وابدأ رحلتك <span class="gold">نحو الاحتراف</span></h2>
-      <p class="sec-lead">اكتب بيانات اللاعب، وانسخ الطلب الجاهز ثم أرسله لنا بالطريقة التي تناسبك.</p>
+    <div class="rv" style="margin-bottom:2rem">
+      <span class="label">سجّل معنا الآن</span>
+      <h2 class="h2">وابدأ رحلتك <span class="goldgrad">نحو الاحتراف</span></h2>
+      <p class="lead">اكتب بيانات اللاعب، وسنفتح لك واتساب برسالة جاهزة للإرسال.</p>
     </div>
     <div class="reg">
       <div class="card rv">
@@ -761,13 +739,13 @@ a{color:inherit;text-decoration:none}
       </div>
 
       <aside class="card rv">
-        <p class="eyebrow" style="justify-content:flex-start">تواصل معنا</p>
+        <span class="label">تواصل معنا</span>
         <div class="contact-list">
-          <a class="contact-row" style="cursor:pointer" href="tel:0541977760">
+          <a class="contact-row" href="tel:0541977760">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
             <span><b>0541977760</b><small>اتصال مباشر بالأكاديمية</small></span>
           </a>
-          <a class="contact-row" style="cursor:pointer" href="https://wa.me/966541977760" target="_blank" rel="noopener">
+          <a class="contact-row" href="https://wa.me/966541977760" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20z"/></svg>
             <span><b>واتساب: 0541977760</b><small>سجّل أو استفسر مباشرة — رد سريع</small></span>
           </a>
@@ -780,22 +758,18 @@ a{color:inherit;text-decoration:none}
             <span><b style="font-family:var(--body);font-size:1rem">مواعيد التدريب</b><small>تُرسل مع تأكيد التسجيل</small></span>
           </div>
         </div>
-        <div class="motto">مملكتنا الحبيبة — <span>نحتضن المواهب</span> … لنصنع المستقبل.</div>
+        <div class="motto-box">مملكتنا الحبيبة — <span>نحتضن المواهب</span> … لنصنع المستقبل.</div>
       </aside>
     </div>
   </div>
 </section>
 
-
-<div class="ribbon" aria-hidden="true"><i></i><b></b></div>
-
-<!-- ============ MAP / LOCATION ============ -->
-<section class="band band--tint" id="location">
+<!-- ============ MAP ============ -->
+<section class="band" id="location" style="padding-top:0">
   <div class="wrap">
-    <div class="head rv">
-      <p class="eyebrow">أين نتدرّب</p>
-      <h2 class="sec-title">ملعب <span class="gold">قلب الأسد</span> على الخريطة</h2>
-      <p class="sec-lead">تعرّف على موقع الملعب مسبقاً، واحصل على الاتجاهات مباشرة قبل أول حصة لابنك.</p>
+    <div class="rv" style="margin-bottom:2rem">
+      <span class="label">أين نتدرّب</span>
+      <h2 class="h2">ملعب <span class="goldgrad">قلب الأسد</span> على الخريطة</h2>
     </div>
     <div class="map-wrap rv">
       <div class="map-frame">
@@ -806,17 +780,16 @@ a{color:inherit;text-decoration:none}
           title="موقع ملعب قلب الأسد على خرائط جوجل"></iframe>
         <div class="map-pin" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none"><path d="M12 22s7.5-7.05 7.5-12.5S16.14 2 12 2 4.5 4.95 4.5 9.5 12 22 12 22z" fill="#E9B949" stroke="#7E5710" stroke-width="1"/><circle cx="12" cy="9.5" r="3.2" fill="#140A05"/></svg>
-          <i></i>
         </div>
       </div>
       <div class="card map-card">
         <div>
-          <p class="eyebrow" style="justify-content:flex-start">الموقع</p>
-          <div class="map-addr" style="margin-top:.9rem">
+          <span class="label">الموقع</span>
+          <div class="map-addr">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
             <div>
               <h3>ملعب قلب الأسد</h3>
-              <p>حي السويس، جازان، المملكة العربية السعودية — يمكنك تحديد الموقع مباشرة من الخريطة أو فتحه في تطبيق خرائط جوجل.</p>
+              <p>حي السويس، جازان، المملكة العربية السعودية — حدّد الموقع من الخريطة أو افتحه في تطبيق خرائط جوجل.</p>
             </div>
           </div>
         </div>
@@ -825,7 +798,7 @@ a{color:inherit;text-decoration:none}
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 20l-5.5 2V6L9 4m0 16l6 2m-6-2V4m6 18l5.5-2V4L15 6m0 16V6m0 0L9 4"/></svg>
             افتح في خرائط جوجل
           </a>
-          <a class="btn btn-ghost" href="https://www.google.com/maps/dir/?api=1&destination=16.8758668,42.5955706" target="_blank" rel="noopener">
+          <a class="btn btn-line" href="https://www.google.com/maps/dir/?api=1&destination=16.8758668,42.5955706" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg>
             احصل على الاتجاهات
           </a>
@@ -837,16 +810,41 @@ a{color:inherit;text-decoration:none}
 
 <!-- ============ FOOTER ============ -->
 <footer class="foot">
-  <div class="wrap foot-in">
-    <div class="foot-brand">
-      <img src="logo.png" alt="" width="64" height="89">
-      <div><h4>أكاديمية قلب الأسد</h4><small>LION HEART ACADEMY</small></div>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brandline">
+          <img src="logo.png" alt="" width="52" height="70">
+          <div style="font-family:var(--disp);font-weight:900;font-size:1.25rem;line-height:1.2">أكاديمية قلب الأسد<br><small style="font-family:var(--num);font-weight:500;font-size:.6rem;letter-spacing:.22em;color:var(--vio)">LION HEART ACADEMY</small></div>
+        </div>
+        <p>أكاديمية كرة قدم للناشئين في جازان — نحتضن المواهب من ٥ سنوات فما فوق ونبني الشخصية قبل المهارة.</p>
+        <span class="visitors" id="visitors" hidden>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+          عدد زوار الموقع: <b id="visitorsNum">…</b>
+        </span>
+      </div>
+      <div>
+        <h4>روابط رئيسية</h4>
+        <div class="foot-list">
+          <a href="#about">من نحن</a>
+          <a href="#squads">الفئات العمرية</a>
+          <a href="#pillars">ركائزنا</a>
+          <a href="#faq">الأسئلة الشائعة</a>
+          <a href="#location">موقع الملعب</a>
+        </div>
+      </div>
+      <div>
+        <h4>تواصل معنا</h4>
+        <div class="foot-list">
+          <a href="tel:0541977760">هاتف: 0541977760</a>
+          <a href="https://wa.me/966541977760" target="_blank" rel="noopener">واتساب مباشر</a>
+          <span>LionHeart.Academy — انستقرام وسناب</span>
+          <a href="#join">نموذج التسجيل</a>
+        </div>
+      </div>
     </div>
-    <nav class="foot-links">
-      <a href="#why">لماذا نحن</a><a href="#squads">الفئات</a><a href="#path">مسار اللاعب</a>
-      <a href="#faq">أسئلة شائعة</a><a href="#location">الموقع</a><a href="#join">تسجيل</a>
-    </nav>
-    <div class="foot-tag">
+    <div class="foot-mark" aria-hidden="true">قلب الأسد</div>
+    <div class="foot-base">
       <span>شجاعة · انضباط · احترام · تطوير — فريق واحد … هدف واحد</span>
       <span>© <span id="yr"></span> أكاديمية قلب الأسد. جميع الحقوق محفوظة.</span>
     </div>
@@ -862,7 +860,7 @@ const metaTheme = document.getElementById('metaTheme');
 function applyTheme(t){
   if (t === 'light') root.setAttribute('data-theme','light');
   else root.removeAttribute('data-theme');
-  metaTheme.setAttribute('content', t === 'light' ? '#FAF5EA' : '#070409');
+  metaTheme.setAttribute('content', t === 'light' ? '#F8F5FD' : '#0A0612');
 }
 let savedTheme = null;
 try { savedTheme = localStorage.getItem('lha-theme'); } catch(e){}
@@ -886,45 +884,6 @@ menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
   menu.classList.remove('open'); burger.setAttribute('aria-expanded','false');
 }));
 
-/* gold dust particles */
-const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-const cv = document.getElementById('dust');
-if (!reduced && cv) {
-  const cx = cv.getContext('2d');
-  let W, H, ps = [];
-  const N = 42;
-  function size(){
-    const r = cv.parentElement.getBoundingClientRect();
-    W = cv.width = r.width * devicePixelRatio;
-    H = cv.height = r.height * devicePixelRatio;
-    cv.style.width = r.width+'px'; cv.style.height = r.height+'px';
-  }
-  size(); addEventListener('resize', size);
-  for (let i=0;i<N;i++) ps.push({
-    x: Math.random(), y: Math.random(),
-    r: (Math.random()*1.6+.5)*devicePixelRatio,
-    vy: (Math.random()*.12+.04)/1000, vx: (Math.random()-.5)*.06/1000,
-    a: Math.random()*.5+.15, ph: Math.random()*Math.PI*2
-  });
-  let last = performance.now();
-  (function tick(t){
-    const dt = Math.min(t-last, 50); last = t;
-    cx.clearRect(0,0,W,H);
-    for (const p of ps){
-      p.y -= p.vy*dt; p.x += p.vx*dt; p.ph += dt*.002;
-      if (p.y < -0.02){ p.y = 1.02; p.x = Math.random(); }
-      if (p.x < -0.02) p.x = 1.02; if (p.x > 1.02) p.x = -0.02;
-      const tw = .6 + .4*Math.sin(p.ph);
-      cx.beginPath();
-      cx.arc(p.x*W, p.y*H, p.r*tw, 0, 7);
-      const gold = root.hasAttribute('data-theme') ? '154,106,20' : '233,185,73';
-      cx.fillStyle = 'rgba('+gold+','+(p.a*tw).toFixed(3)+')';
-      cx.fill();
-    }
-    requestAnimationFrame(tick);
-  })(last);
-}
-
 /* scroll reveal + counters */
 const io = new IntersectionObserver((entries) => {
   entries.forEach((e, i) => {
@@ -932,7 +891,7 @@ const io = new IntersectionObserver((entries) => {
     e.target.style.transitionDelay = (i * 70) + 'ms';
     e.target.classList.add('on');
     e.target.querySelectorAll('[data-count]').forEach(el => {
-      const end = +el.dataset.count, t0 = performance.now(), dur = 900;
+      const end = +el.dataset.count, t0 = performance.now(), dur = 1000;
       (function step(t){
         const k = Math.min((t - t0)/dur, 1);
         el.textContent = Math.round(end * (1-Math.pow(1-k,3)));
@@ -941,10 +900,10 @@ const io = new IntersectionObserver((entries) => {
     });
     io.unobserve(e.target);
   });
-}, { threshold: .16, rootMargin: '0px 0px -60px' });
+}, { threshold: .15, rootMargin: '0px 0px -60px' });
 document.querySelectorAll('.rv').forEach(el => io.observe(el));
 
-/* copy form */
+/* whatsapp form */
 const note = document.getElementById('note');
 document.getElementById('send').addEventListener('click', () => {
   const name  = document.getElementById('f-name').value.trim();
@@ -955,7 +914,7 @@ document.getElementById('send').addEventListener('click', () => {
 
   if (!name || !phone) {
     note.textContent = 'اكتب اسم اللاعب ورقم جوال ولي الأمر لنتمكن من الرد عليك.';
-    note.style.color = '#F7DFA0';
+    note.style.color = 'var(--gold)';
     return;
   }
   const msg =
@@ -970,6 +929,32 @@ document.getElementById('send').addEventListener('click', () => {
   note.style.color = '';
   window.open('https://wa.me/966541977760?text=' + encodeURIComponent(msg), '_blank');
 });
+
+/* visitors counter (counterapi.dev) */
+(function(){
+  const chip = document.getElementById('visitors');
+  const numEl = document.getElementById('visitorsNum');
+  if (!chip) return;
+  const NS = 'lionheart-academy-jazan', KEY = 'site-visits';
+  let counted = false;
+  try { counted = sessionStorage.getItem('lha-counted') === '1'; } catch(e){}
+  const url = 'https://api.counterapi.dev/v1/' + NS + '/' + KEY + (counted ? '' : '/up');
+  fetch(url)
+    .then(r => { if (!r.ok) throw 0; return r.json(); })
+    .then(d => {
+      const n = d.count ?? d.value;
+      if (typeof n !== 'number') throw 0;
+      try { sessionStorage.setItem('lha-counted','1'); } catch(e){}
+      chip.hidden = false;
+      const t0 = performance.now(), dur = 1100, from = Math.max(0, n - 40);
+      (function step(t){
+        const k = Math.min((t - t0) / dur, 1);
+        numEl.textContent = Math.round(from + (n - from) * (1 - Math.pow(1 - k, 3))).toLocaleString('ar-SA');
+        if (k < 1) requestAnimationFrame(step);
+      })(t0);
+    })
+    .catch(() => { chip.hidden = true; });
+})();
 </script>
 </body>
 </html>
